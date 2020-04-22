@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Spring Boot Thymeleaf Hello World Example</title>
+
+  <link rel="stylesheet" th:href="@{webjars/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+
+</head>
+
+<body>
+
+
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h4>Match Maker</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"><label>Игрок</label></div>
+          <div class="col-md-3"><label>Мощь пачки</label></div>
+          <div class="col-md-3"><label>Мощь титанов</label></div>
+        </div>
+        <div th:each="playersByTeam1 : ${view.team1}">
+          <div class="row">
+            <div class="col-md-3" th:text="${playersByTeam1.name}"></div>
+            <div class="col-md-3" th:text="${playersByTeam1.heroes.power}"></div>
+            <div class="col-md-3" th:text="${playersByTeam1.titans.power}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"><label>Игрок</label></div>
+          <div class="col-md-3"><label>Мощь пачки</label></div>
+          <div class="col-md-3"><label>Мощь титанов</label></div>
+        </div>
+        <div th:each="playersByTeam2 : ${view.team2}">
+          <div class="row">
+            <div class="col-md-3" th:text="${playersByTeam2.name}"></div>
+            <div class="col-md-3" th:text="${playersByTeam2.heroes.power}"></div>
+            <div class="col-md-3" th:text="${playersByTeam2.titans.power}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3"><label>Игрок</label></div>
+          <div class="col-md-3"><label>Противник по героям</label></div>
+          <div class="col-md-3"><label>Противник по титанам</label></div>
+        </div>
+        <div th:each="player : ${view.match}">
+          <div class="row">
+            <div class="col-md-4">
+              <label th:text="${player.key}"></label>
+              <label th:text="${player.value.enemyByHeroes}"></label>
+              <label th:text="${player.value.enemyByTitans}"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

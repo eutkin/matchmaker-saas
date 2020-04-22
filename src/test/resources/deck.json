@@ -1,0 +1,10 @@
+{
+  "name": "eugene",
+  "heroes": {
+    "power": 170000
+  },
+  "titans": {
+    "power" : 103000,
+    "superCount": 3
+  }
+}
